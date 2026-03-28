@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { LogOut, ArrowLeft, XCircle } from "lucide-react";
+import { LogOut, ArrowLeft, XCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 export default function SignoutPage() {
@@ -30,9 +30,9 @@ export default function SignoutPage() {
             Sign Out
           </h1>
           
-          {/* Description */}
+          {/* Description - DIPERBAIKI: tanda kutip diganti dengan &apos; */}
           <p className="text-gray-400 text-center mb-8">
-            Are you sure you want to sign out? You'll need to sign in again to access your account.
+            Are you sure you want to sign out? You&apos;ll need to sign in again to access your account.
           </p>
 
           {/* Buttons */}

@@ -1,7 +1,7 @@
 import { prisma } from "./prisma";
 
 const LOGIN_MAX_ATTEMPTS = 5;
-const LOGIN_BLOCK_TIME = 15 * 60 * 1000; // 15 menit
+const LOGIN_BLOCK_TIME = 15 * 60 * 1000;
 
 export const rateLimit = {
   login: {
@@ -70,7 +70,9 @@ export const rateLimit = {
       if (remaining <= 0) return { allowed: false, remaining: 0, blockMinutes: 60 };
       return { allowed: true, remaining };
     },
-    record: async () => {},
+    record: async () => {  // Tidak menerima parameter
+      // Token sudah tercatat, tidak perlu record tambahan
+    },
     reset: async (email: string) => {
       await prisma.passwordResetToken.deleteMany({ where: { email } }).catch(() => {});
     },

@@ -38,7 +38,7 @@ export async function POST(request: Request) {
     }
 
     // Record attempt
-    await rateLimit.forgot.record(email);
+    await rateLimit.forgot.record();
 
     // Hapus token lama
     await prisma.passwordResetToken.deleteMany({

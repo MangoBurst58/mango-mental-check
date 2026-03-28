@@ -1,8 +1,7 @@
-import DOMPurify from 'isomorphic-dompurify';
-
 export function sanitizeInput(input: string): string {
   if (!input) return '';
-  return DOMPurify.sanitize(input.trim());
+  // Hapus karakter berbahaya sederhana
+  return input.trim().replace(/[<>]/g, '');
 }
 
 export function sanitizeEmail(email: string): string {
@@ -12,7 +11,7 @@ export function sanitizeEmail(email: string): string {
 
 export function sanitizeText(text: string): string {
   if (!text) return '';
-  return DOMPurify.sanitize(text.trim().replace(/[<>]/g, ''));
+  return text.trim().replace(/[<>]/g, '');
 }
 
 export function validatePassword(password: string): { valid: boolean; errors: string[] } {
