@@ -50,8 +50,8 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen w-full bg-black overflow-x-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      {/* Animated Background - hanya di desktop */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none hidden md:block">
         <div 
           className="absolute w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl"
           style={{ 
@@ -71,15 +71,15 @@ export default function HomePage() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             <Logo variant="navbar" showText={true} />
-            <div className="flex items-center gap-4">
-              <Link href="/login" className="text-sm text-gray-400 hover:text-white transition px-3 py-1.5 rounded-lg hover:bg-gray-800/50">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <Link href="/login" className="text-xs sm:text-sm text-gray-400 hover:text-white transition px-2 sm:px-3 py-1.5 rounded-lg hover:bg-gray-800/50">
                 {t("common.login")}
               </Link>
               <Link
                 href="/register"
-                className="px-4 py-1.5 text-sm bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40"
+                className="px-3 sm:px-4 py-1 text-xs sm:text-sm bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-orange-500/25"
               >
                 {t("common.register")}
               </Link>
@@ -92,29 +92,26 @@ export default function HomePage() {
       {/* Hero Section */}
       <motion.section 
         style={{ opacity, scale }}
-        className="relative min-h-screen flex items-center pt-20"
+        className="relative min-h-screen flex items-center pt-16 sm:pt-20"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="text-center lg:text-left"
             >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5, type: "spring" }}
-                className="w-16 h-16 bg-gradient-to-br from-orange-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-2xl shadow-orange-500/30"
-              >
-                <Sparkles className="w-8 h-8 text-white" />
-              </motion.div>
+              {/* Logo besar di hero - menggunakan komponen Logo */}
+              <div className="flex justify-center lg:justify-start mb-4 sm:mb-6">
+                <Logo variant="large" showText={false} />
+              </div>
               
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-6 leading-tight"
               >
                 {t("app.name")}
               </motion.h1>
@@ -123,7 +120,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-xl text-gray-400 mb-8 leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-gray-400 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0"
               >
                 {t("home.heroDescription")}
               </motion.p>
@@ -132,16 +129,16 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="flex flex-wrap gap-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
               >
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => router.push("/register")}
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-lg overflow-hidden shadow-xl shadow-orange-500/25"
+                  className="group relative inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-sm sm:text-base md:text-lg overflow-hidden shadow-xl shadow-orange-500/25"
                 >
                   <span className="relative z-10">{t("home.startNow")}</span>
-                  <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.button>
                 
@@ -151,10 +148,10 @@ export default function HomePage() {
                   onClick={() => {
                     document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900/50 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:bg-gray-800/50 transition-all backdrop-blur-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-4 bg-gray-900/50 border border-gray-700 text-white rounded-xl font-semibold text-sm sm:text-base md:text-lg hover:bg-gray-800/50 transition-all backdrop-blur-sm"
                 >
                   {t("home.learnMore")}
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </motion.button>
               </motion.div>
             </motion.div>
@@ -164,7 +161,7 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-8 lg:mt-0"
             >
               {[
                 { icon: FileText, title: "PHQ-9", desc: t("screening.phq9.fullName"), time: t("screening.phq9.questions") + " • " + t("screening.phq9.duration"), color: "orange" },
@@ -176,17 +173,17 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + idx * 0.1 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className={`group relative overflow-hidden p-6 rounded-2xl bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-800 hover:border-${item.color}-500/50 transition-all cursor-pointer`}
+                  className={`group relative overflow-hidden p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-800 hover:border-${item.color}-500/50 transition-all cursor-pointer`}
                   onClick={() => router.push("/register")}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-r from-${item.color}-500/0 to-${item.color}-500/5 group-hover:opacity-100 opacity-0 transition-opacity`} />
-                  <item.icon className={`w-10 h-10 text-${item.color}-500 mb-3`} />
-                  <p className="text-2xl font-bold text-white">{item.title}</p>
-                  <p className="text-sm text-gray-400">{item.desc}</p>
-                  <p className="text-xs text-gray-500 mt-2">{item.time}</p>
-                  <div className="mt-3 flex items-center text-xs text-gray-500 group-hover:text-white transition-colors">
+                  <item.icon className={`w-8 h-8 sm:w-10 sm:h-10 text-${item.color}-500 mb-2 sm:mb-3`} />
+                  <p className="text-xl sm:text-2xl font-bold text-white">{item.title}</p>
+                  <p className="text-xs sm:text-sm text-gray-400">{item.desc}</p>
+                  <p className="text-[10px] sm:text-xs text-gray-500 mt-1 sm:mt-2">{item.time}</p>
+                  <div className="mt-2 sm:mt-3 flex items-center text-[10px] sm:text-xs text-gray-500 group-hover:text-white transition-colors">
                     {item.title === "PHQ-9" ? t("screening.phq9.start") : t("screening.gad7.start")}
-                    <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 ml-1 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </motion.div>
               ))}
@@ -198,33 +195,33 @@ export default function HomePage() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2"
         >
-          <div className="w-6 h-10 rounded-full border-2 border-gray-600 flex justify-center">
-            <div className="w-1 h-2 bg-gray-600 rounded-full mt-2 animate-bounce" />
+          <div className="w-5 h-8 sm:w-6 sm:h-10 rounded-full border-2 border-gray-600 flex justify-center">
+            <div className="w-1 h-1.5 sm:h-2 bg-gray-600 rounded-full mt-2 animate-bounce" />
           </div>
         </motion.div>
       </motion.section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 relative">
+      <section id="features" className="py-12 sm:py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
               {t("home.whyTitle")} <span className="bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">{t("app.name")}</span>?
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto px-4">
               {t("home.whyDescription")}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {features.map((feature, idx) => (
               <motion.div
                 key={feature.title}
@@ -236,12 +233,12 @@ export default function HomePage() {
                 className="group relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-blue-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
-                <div className="relative p-8 rounded-2xl bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-800 group-hover:border-orange-500/30 transition-all">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${feature.gradient} p-3 mb-4 shadow-lg`}>
+                <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-800 group-hover:border-orange-500/30 transition-all">
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-r ${feature.gradient} p-2.5 sm:p-3 mb-3 sm:mb-4 shadow-lg`}>
                     <feature.icon className="w-full h-full text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                  <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">{feature.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">{feature.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -250,7 +247,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-16 sm:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-blue-500/10" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -258,32 +255,32 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Zap className="w-12 h-12 text-orange-500 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-orange-500 mx-auto mb-4 sm:mb-6" />
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
               {t("home.ctaTitle")}
             </h2>
-            <p className="text-gray-400 mb-8 text-lg">
+            <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8 px-4">
               {t("home.ctaDescription")}
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => router.push("/register")}
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-lg shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 transition-all"
+              className="group inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-sm sm:text-base md:text-lg shadow-xl shadow-orange-500/25"
             >
               {t("home.ctaButton")}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-800 py-8">
+      <footer className="border-t border-gray-800 py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
             <Logo variant="small" showText={false} />
-            <p className="text-xs text-gray-600">
+            <p className="text-[10px] sm:text-xs text-gray-600">
               {t("footer.developedBy")} <span className="text-orange-500/70">{t("footer.developer")}</span>
             </p>
           </div>

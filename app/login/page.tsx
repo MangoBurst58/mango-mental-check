@@ -29,15 +29,11 @@ export default function LoginPage() {
         redirect: false,
       });
 
-      console.log("SignIn result:", result);
-
       if (result?.error) {
-        // Cek apakah error adalah rate limit
         if (result.error.startsWith("RATE_LIMIT:")) {
           const minutes = result.error.split(":")[1];
           setError(t("auth.rateLimit", { minutes }));
         } else {
-          // Error lainnya (invalid credentials, dll)
           setError(t(result.error) || t("auth.invalidCredentials"));
         }
         setLoading(false);
@@ -48,7 +44,6 @@ export default function LoginPage() {
         setLoading(false);
       }
     } catch (err) {
-      console.error("Login error:", err);
       setError("Terjadi kesalahan. Silakan coba lagi.");
       setLoading(false);
     }
@@ -58,7 +53,7 @@ export default function LoginPage() {
     <div className="min-h-screen w-full bg-black">
       {/* Header - Fixed Top */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3">
           <div className="flex items-center justify-between">
             <Logo variant="navbar" showText={true} />
             <LanguageSwitcher />
@@ -69,38 +64,38 @@ export default function LoginPage() {
       {/* Back Button */}
       <button
         onClick={() => router.push("/")}
-        className="absolute top-20 left-4 z-20 flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition"
+        className="absolute top-16 sm:top-20 left-4 z-20 flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 text-xs sm:text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition"
       >
-        <ArrowLeft className="w-4 h-4" />
+        <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         <span>{t("common.back")}</span>
       </button>
 
       <div className="grid lg:grid-cols-2 min-h-screen">
         
         {/* LEFT SIDE - FORM */}
-        <div className="flex items-center justify-center px-6 py-12 lg:px-12">
+        <div className="flex items-center justify-center px-4 sm:px-6 py-8 sm:py-12 lg:px-12">
           <div className="w-full max-w-md">
             {/* Header Form */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-white mb-2">
+            <div className="mb-6 sm:mb-8 text-center lg:text-left">
+              <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                 {t("auth.welcomeBack")}
               </h1>
-              <p className="text-gray-400">
+              <p className="text-sm sm:text-base text-gray-400">
                 {t("auth.welcomeMessage")}
               </p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
               {error && (
-                <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-3 rounded-lg text-sm">
+                <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-2.5 sm:p-3 rounded-lg text-xs sm:text-sm">
                   {error}
                 </div>
               )}
               
               {/* Email Field */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
                   {t("auth.emailAddress")}
                 </label>
                 <div className="relative">
@@ -109,7 +104,7 @@ export default function LoginPage() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-3 py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500"
+                    className="w-full pl-10 pr-3 py-2.5 sm:py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500 text-sm sm:text-base"
                     placeholder="nama@email.com"
                     required
                   />
@@ -118,13 +113,13 @@ export default function LoginPage() {
 
               {/* Password Field */}
               <div>
-                <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-medium text-gray-300">
+                <div className="flex justify-between items-center mb-1.5 sm:mb-2">
+                  <label className="text-xs sm:text-sm font-medium text-gray-300">
                     {t("common.password")}
                   </label>
                   <Link
                     href="/forgot-password"
-                    className="text-xs text-orange-500 hover:text-orange-400 transition"
+                    className="text-[10px] sm:text-xs text-orange-500 hover:text-orange-400 transition"
                   >
                     {t("common.forgotPassword")}
                   </Link>
@@ -135,7 +130,7 @@ export default function LoginPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-10 pr-3 py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500"
+                    className="w-full pl-10 pr-3 py-2.5 sm:py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500 text-sm sm:text-base"
                     placeholder="••••••••"
                     required
                   />
@@ -146,7 +141,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-lg shadow-orange-500/25"
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white py-2.5 sm:py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-lg shadow-orange-500/25 text-sm sm:text-base"
               >
                 {loading ? t("common.loading") : t("auth.signIn")}
                 <ArrowRight className="w-4 h-4" />
@@ -154,7 +149,7 @@ export default function LoginPage() {
             </form>
 
             {/* Divider */}
-            <div className="relative my-8">
+            <div className="relative my-6 sm:my-8">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-800"></div>
               </div>
@@ -166,7 +161,7 @@ export default function LoginPage() {
             {/* Google Button */}
             <button
               onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-              className="w-full bg-gray-900 border border-gray-800 text-white py-3 rounded-xl font-medium hover:bg-gray-800 transition-all flex items-center justify-center gap-3"
+              className="w-full bg-gray-900 border border-gray-800 text-white py-2.5 sm:py-3 rounded-xl font-medium hover:bg-gray-800 transition-all flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -178,7 +173,7 @@ export default function LoginPage() {
             </button>
 
             {/* Sign Up Link */}
-            <p className="text-center mt-6 text-sm text-gray-500">
+            <p className="text-center mt-6 sm:mt-8 text-xs sm:text-sm text-gray-500">
               {t("common.dontHaveAccount")}{" "}
               <a href="/register" className="text-orange-500 font-medium hover:text-orange-400 transition">
                 {t("auth.signUp")}
@@ -187,7 +182,7 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE - Hero Section - Responsive (hidden di mobile) */}
         <div className="hidden lg:flex relative bg-gradient-to-br from-gray-900 to-black overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>

@@ -20,7 +20,6 @@ export default function RegisterPage() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Password strength validation
   const [passwordStrength, setPasswordStrength] = useState({
     length: false,
     uppercase: false,
@@ -61,14 +60,12 @@ export default function RegisterPage() {
     setError("");
     setMessage("");
 
-    // Validasi password match
     if (password !== confirmPassword) {
       setError(t("auth.passwordMismatch"));
       setLoading(false);
       return;
     }
 
-    // Validasi kekuatan password
     if (!isPasswordStrong()) {
       setError("Password harus memenuhi semua kriteria keamanan (minimal 8 karakter, huruf besar, huruf kecil, angka, dan simbol)");
       setLoading(false);
@@ -101,7 +98,7 @@ export default function RegisterPage() {
     <div className="min-h-screen w-full bg-black">
       {/* Header - Fixed Top */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3">
           <div className="flex items-center justify-between">
             <Logo variant="navbar" showText={true} />
             <LanguageSwitcher />
@@ -112,23 +109,23 @@ export default function RegisterPage() {
       {/* Back Button */}
       <button
         onClick={() => router.push("/login")}
-        className="absolute top-20 left-4 z-20 flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition"
+        className="absolute top-16 sm:top-20 left-4 z-20 flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 text-xs sm:text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition"
       >
-        <ArrowLeft className="w-4 h-4" />
+        <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         <span>{t("common.back")}</span>
       </button>
 
       <div className="grid lg:grid-cols-2 min-h-screen">
         
         {/* LEFT SIDE - FORM */}
-        <div className="flex items-center justify-center px-6 py-12 lg:px-12">
+        <div className="flex items-center justify-center px-4 sm:px-6 py-8 sm:py-12 lg:px-12">
           <div className="w-full max-w-md">
             {/* Header Form */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-white mb-2">
+            <div className="mb-6 sm:mb-8 text-center lg:text-left">
+              <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                 {t("auth.createAccount")}
               </h1>
-              <p className="text-gray-400">
+              <p className="text-sm sm:text-base text-gray-400">
                 {t("auth.createAccountMessage")}
               </p>
             </div>
@@ -136,19 +133,19 @@ export default function RegisterPage() {
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               {error && (
-                <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-3 rounded-lg text-sm">
+                <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-2.5 sm:p-3 rounded-lg text-xs sm:text-sm">
                   {error}
                 </div>
               )}
               {message && (
-                <div className="bg-green-500/10 border border-green-500/50 text-green-400 p-3 rounded-lg text-sm">
+                <div className="bg-green-500/10 border border-green-500/50 text-green-400 p-2.5 sm:p-3 rounded-lg text-xs sm:text-sm">
                   {message}
                 </div>
               )}
               
               {/* Name Field */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
                   {t("auth.fullName")}
                 </label>
                 <div className="relative">
@@ -157,7 +154,7 @@ export default function RegisterPage() {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full pl-10 pr-3 py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500"
+                    className="w-full pl-10 pr-3 py-2.5 sm:py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500 text-sm sm:text-base"
                     placeholder="Nama lengkap"
                     required
                   />
@@ -166,7 +163,7 @@ export default function RegisterPage() {
 
               {/* Email Field */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
                   {t("auth.emailAddress")}
                 </label>
                 <div className="relative">
@@ -175,16 +172,16 @@ export default function RegisterPage() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-3 py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500"
+                    className="w-full pl-10 pr-3 py-2.5 sm:py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500 text-sm sm:text-base"
                     placeholder="nama@email.com"
                     required
                   />
                 </div>
               </div>
 
-              {/* Password Field dengan Strength Indicator */}
+              {/* Password Field */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
                   {t("common.password")}
                 </label>
                 <div className="relative">
@@ -193,7 +190,7 @@ export default function RegisterPage() {
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={handlePasswordChange}
-                    className="w-full pl-10 pr-10 py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500"
+                    className="w-full pl-10 pr-10 py-2.5 sm:py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500 text-sm sm:text-base"
                     placeholder="••••••••"
                     required
                   />
@@ -208,56 +205,56 @@ export default function RegisterPage() {
                 
                 {/* Password Strength Indicator */}
                 {password.length > 0 && (
-                  <div className="mt-3 space-y-2">
-                    <p className="text-xs text-gray-400 mb-1">Kriteria Password:</p>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="flex items-center gap-2">
+                  <div className="mt-2 space-y-1.5">
+                    <p className="text-[10px] sm:text-xs text-gray-400">Kriteria Password:</p>
+                    <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+                      <div className="flex items-center gap-1.5">
                         {passwordStrength.length ? (
-                          <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                          <CheckCircle className="w-3 h-3 text-green-500" />
                         ) : (
-                          <XCircle className="w-3.5 h-3.5 text-gray-500" />
+                          <XCircle className="w-3 h-3 text-gray-500" />
                         )}
-                        <span className={`text-xs ${passwordStrength.length ? "text-green-400" : "text-gray-500"}`}>
+                        <span className={`text-[10px] sm:text-xs ${passwordStrength.length ? "text-green-400" : "text-gray-500"}`}>
                           Minimal 8 karakter
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
                         {passwordStrength.uppercase ? (
-                          <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                          <CheckCircle className="w-3 h-3 text-green-500" />
                         ) : (
-                          <XCircle className="w-3.5 h-3.5 text-gray-500" />
+                          <XCircle className="w-3 h-3 text-gray-500" />
                         )}
-                        <span className={`text-xs ${passwordStrength.uppercase ? "text-green-400" : "text-gray-500"}`}>
+                        <span className={`text-[10px] sm:text-xs ${passwordStrength.uppercase ? "text-green-400" : "text-gray-500"}`}>
                           Huruf besar (A-Z)
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
                         {passwordStrength.lowercase ? (
-                          <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                          <CheckCircle className="w-3 h-3 text-green-500" />
                         ) : (
-                          <XCircle className="w-3.5 h-3.5 text-gray-500" />
+                          <XCircle className="w-3 h-3 text-gray-500" />
                         )}
-                        <span className={`text-xs ${passwordStrength.lowercase ? "text-green-400" : "text-gray-500"}`}>
+                        <span className={`text-[10px] sm:text-xs ${passwordStrength.lowercase ? "text-green-400" : "text-gray-500"}`}>
                           Huruf kecil (a-z)
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
                         {passwordStrength.number ? (
-                          <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                          <CheckCircle className="w-3 h-3 text-green-500" />
                         ) : (
-                          <XCircle className="w-3.5 h-3.5 text-gray-500" />
+                          <XCircle className="w-3 h-3 text-gray-500" />
                         )}
-                        <span className={`text-xs ${passwordStrength.number ? "text-green-400" : "text-gray-500"}`}>
+                        <span className={`text-[10px] sm:text-xs ${passwordStrength.number ? "text-green-400" : "text-gray-500"}`}>
                           Angka (0-9)
                         </span>
                       </div>
-                      <div className="flex items-center gap-2 col-span-2">
+                      <div className="flex items-center gap-1.5 col-span-2">
                         {passwordStrength.special ? (
-                          <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                          <CheckCircle className="w-3 h-3 text-green-500" />
                         ) : (
-                          <XCircle className="w-3.5 h-3.5 text-gray-500" />
+                          <XCircle className="w-3 h-3 text-gray-500" />
                         )}
-                        <span className={`text-xs ${passwordStrength.special ? "text-green-400" : "text-gray-500"}`}>
+                        <span className={`text-[10px] sm:text-xs ${passwordStrength.special ? "text-green-400" : "text-gray-500"}`}>
                           Karakter khusus (!@#$%^&*)
                         </span>
                       </div>
@@ -268,7 +265,7 @@ export default function RegisterPage() {
 
               {/* Confirm Password Field */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
                   {t("common.confirmPassword")}
                 </label>
                 <div className="relative">
@@ -277,7 +274,7 @@ export default function RegisterPage() {
                     type={showConfirmPassword ? "text" : "password"}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full pl-10 pr-10 py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500"
+                    className="w-full pl-10 pr-10 py-2.5 sm:py-3 bg-gray-900 border border-gray-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition text-white placeholder-gray-500 text-sm sm:text-base"
                     placeholder="••••••••"
                     required
                   />
@@ -290,7 +287,7 @@ export default function RegisterPage() {
                   </button>
                 </div>
                 {confirmPassword.length > 0 && password !== confirmPassword && (
-                  <p className="text-xs text-red-400 mt-1">Password tidak cocok</p>
+                  <p className="text-[10px] sm:text-xs text-red-400 mt-1">Password tidak cocok</p>
                 )}
               </div>
 
@@ -298,7 +295,7 @@ export default function RegisterPage() {
               <button
                 type="submit"
                 disabled={loading || !isPasswordStrong()}
-                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-orange-500/25 mt-6"
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white py-2.5 sm:py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-orange-500/25 mt-4 sm:mt-6 text-sm sm:text-base"
               >
                 {loading ? t("common.loading") : t("auth.signUp")}
                 <ArrowRight className="w-4 h-4" />
@@ -306,7 +303,7 @@ export default function RegisterPage() {
             </form>
 
             {/* Sign In Link */}
-            <p className="text-center mt-6 text-sm text-gray-500">
+            <p className="text-center mt-6 sm:mt-8 text-xs sm:text-sm text-gray-500">
               {t("common.alreadyHaveAccount")}{" "}
               <a href="/login" className="text-orange-500 font-medium hover:text-orange-400 transition">
                 {t("auth.signIn")}
@@ -315,7 +312,7 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        {/* RIGHT SIDE - Hero Section */}
+        {/* RIGHT SIDE - Hidden di mobile */}
         <div className="hidden lg:flex relative bg-gradient-to-br from-gray-900 to-black overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>

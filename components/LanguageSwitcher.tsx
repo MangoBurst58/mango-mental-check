@@ -14,8 +14,8 @@ export default function LanguageSwitcher() {
 
   if (!mounted) {
     return (
-      <button className="flex items-center gap-1 px-2 py-1 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition">
-        <Globe className="w-4 h-4" />
+      <button className="flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs text-gray-400">
+        <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
         <span>ID</span>
       </button>
     );
@@ -24,9 +24,9 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={() => setLanguage(language === "id" ? "en" : "id")}
-      className="flex items-center gap-1 px-2 py-1 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition"
+      className="flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition"
     >
-      <Globe className="w-4 h-4" />
+      <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
       <span>{language === "id" ? "ID" : "EN"}</span>
     </button>
   );

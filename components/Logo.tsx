@@ -9,25 +9,25 @@ interface LogoProps {
 
 export default function Logo({ variant = "navbar", showText = true }: LogoProps) {
   const sizeClasses = {
-    navbar: "w-8 h-8",
-    large: "w-16 h-16",
-    small: "w-6 h-6",
+    navbar: "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8",
+    large: "w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16",
+    small: "w-5 h-5 sm:w-6 sm:h-6",
   };
 
   const iconSizes = {
-    navbar: "w-4.5 h-4.5",
-    large: "w-8 h-8",
-    small: "w-3.5 h-3.5",
+    navbar: "w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-4.5 md:h-4.5",
+    large: "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8",
+    small: "w-3 h-3 sm:w-3.5 sm:h-3.5",
   };
 
   const textSizes = {
-    navbar: "text-lg",
-    large: "text-2xl",
-    small: "text-sm",
+    navbar: "text-xs sm:text-sm md:text-base lg:text-lg",
+    large: "text-base sm:text-lg md:text-xl lg:text-2xl",
+    small: "text-[10px] sm:text-xs",
   };
 
   return (
-    <Link href="/dashboard" className="flex items-center gap-2 group">
+    <Link href="/dashboard" className="flex items-center gap-1 sm:gap-2 group">
       <div className={`relative ${sizeClasses[variant]} group`}>
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg transform rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
