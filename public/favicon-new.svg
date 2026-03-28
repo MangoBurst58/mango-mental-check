@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background dengan gradient orange ke biru -->
+  <rect width="100" height="100" rx="20" fill="url(#gradient)" />
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F97316" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Bentuk Mango (seperti hati) -->
+  <path d="M50 85 L35 70 C20 55 15 45 15 35 C15 25 25 15 35 15 C42 15 48 20 50 25 C52 20 58 15 65 15 C75 15 85 25 85 35 C85 45 80 55 65 70 L50 85Z" fill="white" />
+  
+  <!-- Biji Mango (warna orange) -->
+  <circle cx="50" cy="42" r="4" fill="#F97316" />
+  
+  <!-- Daun Mango (warna hijau) -->
+  <path d="M58 18 L65 12 L72 18 L65 22 L58 18Z" fill="#22C55E" />
+</svg>

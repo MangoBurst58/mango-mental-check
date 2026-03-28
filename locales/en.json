@@ -1,0 +1,130 @@
+{
+  "app": {
+    "name": "Mango Mental Check"
+  },
+  "locale": "en",
+  "common": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "name": "Full Name",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "save": "Save",
+    "cancel": "Cancel",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "loading": "Processing...",
+    "or": "or",
+    "forgotPassword": "Forgot password?",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "progress": "Progress",
+    "previous": "Previous"
+  },
+  "auth": {
+    "welcomeBack": "Welcome Back",
+    "welcomeMessage": "Sign in to continue your mental health journey",
+    "createAccount": "Create Account",
+    "createAccountMessage": "Sign up to start your mental health journey",
+    "signInWithGoogle": "Continue with Google",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "invalidCredentials": "Invalid email or password",
+    "passwordMismatch": "Passwords do not match",
+    "emailExists": "Email already registered",
+    "passwordMinLength": "Minimum 6 characters",
+    "fullName": "Full Name",
+    "emailAddress": "Email Address",
+    "registerSuccess": "Registration successful! Please login.",
+    "rateLimit": "Too many login attempts. Please try again in {{minutes}} minutes."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back, {{name}}! 👋",
+    "subtitle": "Take a moment to check in with yourself. Your mental health matters.",
+    "quickActions": "Quick Actions",
+    "recentScreenings": "Recent Screenings",
+    "noHistory": "No screening history yet. Start a screening above!",
+    "whyChoose": "Why Mango Mental Check?",
+    "private": "100% Private",
+    "privateDesc": "Your data is only accessible by you",
+    "scientific": "Science-Based",
+    "scientificDesc": "Globally standardized PHQ-9 & GAD-7 questionnaires",
+    "free": "Free Forever",
+    "freeDesc": "No hidden costs"
+  },
+  "screening": {
+    "description": "Mental health screening with scientific questionnaires PHQ-9 & GAD-7. Free, private, and only takes 5 minutes.",
+    "phq9": {
+      "title": "PHQ-9",
+      "fullName": "Depression Screening",
+      "description": "Measures the frequency of depression symptoms over the past 2 weeks",
+      "questions": "9 questions",
+      "duration": "3-5 minutes",
+      "start": "Start PHQ-9 Screening"
+    },
+    "gad7": {
+      "title": "GAD-7",
+      "fullName": "Anxiety Screening",
+      "description": "Measures the level of anxiety over the past 2 weeks",
+      "questions": "7 questions",
+      "duration": "2-4 minutes",
+      "start": "Start GAD-7 Screening"
+    }
+  },
+  "home": {
+    "heroDescription": "Mental health screening with scientific questionnaires PHQ-9 & GAD-7. Free, private, and only takes 5 minutes.",
+    "startNow": "Start Now",
+    "learnMore": "Learn More",
+    "whyTitle": "Why",
+    "whyDescription": "A mental health screening platform designed to help you recognize your mental condition early.",
+    "ctaTitle": "Start Your Mental Health Journey",
+    "ctaDescription": "Only takes 5 minutes. Free. Private. Small step for big change.",
+    "ctaButton": "Sign Up Now",
+    "users": "Active Users",
+    "satisfaction": "Satisfaction",
+    "screenings": "Screenings Completed"
+  },
+  "assessment": {
+    "instruction": "Instruction",
+    "instructionPeriod": "Over the last 2 weeks, how often have you been bothered by the following problems?",
+    "question": "Question",
+    "viewResult": "View Result",
+    "errorIncomplete": "Please answer all questions",
+    "errorSave": "Failed to save results. Please try again.",
+    "source": "Source:"
+  },
+  "result": {
+    "points": "points",
+    "levelMinimal": "Minimal",
+    "levelMild": "Mild",
+    "levelModerate": "Moderate",
+    "levelModerateSevere": "Moderate-Severe",
+    "levelSevere": "Severe",
+    "about": "About",
+    "symptoms": "Possible Symptoms",
+    "impact": "Impact on Activities",
+    "action": "What to Do",
+    "recommendation": "Recommendation",
+    "resources": "Support Resources",
+    "consultation": "Professional Consultation",
+    "consultationDesc": "Find a psychologist or psychiatrist nearby for further consultation",
+    "hotline": "Mental Health Helpline",
+    "hotlineNumbers": "119 (ext 8) • Yayasan Pulih: +62 21-500-454 • Into The Light: +62 21-725-7777",
+    "monitor": "Track Progress",
+    "monitorDesc": "Take regular screenings every 2-4 weeks to see changes",
+    "infoPhq9": "PHQ-9 is a globally standardized questionnaire for depression screening.",
+    "infoGad7": "GAD-7 is a globally standardized questionnaire for anxiety screening.",
+    "infoDisclaimer": "This result is indicative and not a medical diagnosis.",
+    "disclaimer": "⚠️ This screening result is NOT a medical diagnosis. If you are experiencing concerning symptoms, please consult a psychologist or psychiatrist immediately.",
+    "backToDashboard": "Back to Dashboard",
+    "screeningAgain": "Screening Again"
+  },
+  "footer": {
+    "developedBy": "Developed by",
+    "developer": "Mango WebDev"
+  }
+}

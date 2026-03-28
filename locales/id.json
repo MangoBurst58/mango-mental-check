@@ -1,0 +1,130 @@
+{
+  "app": {
+    "name": "Mango Mental Check"
+  },
+  "locale": "id",
+  "common": {
+    "email": "Email",
+    "password": "Kata Sandi",
+    "confirmPassword": "Konfirmasi Kata Sandi",
+    "name": "Nama Lengkap",
+    "login": "Masuk",
+    "register": "Daftar",
+    "logout": "Keluar",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "back": "Kembali",
+    "next": "Lanjut",
+    "submit": "Kirim",
+    "loading": "Memproses...",
+    "or": "atau",
+    "forgotPassword": "Lupa password?",
+    "dontHaveAccount": "Belum punya akun?",
+    "alreadyHaveAccount": "Sudah punya akun?",
+    "progress": "Progress",
+    "previous": "Sebelumnya"
+  },
+  "auth": {
+    "welcomeBack": "Selamat Datang Kembali",
+    "welcomeMessage": "Masuk untuk melanjutkan perjalanan kesehatan mental Anda",
+    "createAccount": "Buat Akun Baru",
+    "createAccountMessage": "Daftar untuk memulai perjalanan kesehatan mental Anda",
+    "signInWithGoogle": "Lanjutkan dengan Google",
+    "signUp": "Daftar",
+    "signIn": "Masuk",
+    "invalidCredentials": "Email atau password salah",
+    "passwordMismatch": "Password tidak cocok",
+    "emailExists": "Email sudah terdaftar",
+    "passwordMinLength": "Minimal 6 karakter",
+    "fullName": "Nama Lengkap",
+    "emailAddress": "Alamat Email",
+    "registerSuccess": "Pendaftaran berhasil! Silakan login.",
+    "rateLimit": "Terlalu banyak percobaan login. Coba lagi dalam {{minutes}} menit."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Selamat datang kembali, {{name}}! 👋",
+    "subtitle": "Luangkan waktu sejenak untuk memeriksa diri Anda. Kesehatan mental Anda itu penting.",
+    "quickActions": "Aksi Cepat",
+    "recentScreenings": "Riwayat Screening",
+    "noHistory": "Belum ada riwayat screening. Mulai screening di atas!",
+    "whyChoose": "Mengapa Mango Mental Check?",
+    "private": "100% Privat",
+    "privateDesc": "Data Anda hanya bisa diakses oleh Anda",
+    "scientific": "Berbasis Ilmiah",
+    "scientificDesc": "Kuesioner PHQ-9 & GAD-7 terstandar global",
+    "free": "Gratis Selamanya",
+    "freeDesc": "Tanpa biaya tersembunyi"
+  },
+  "screening": {
+    "description": "Screening kesehatan mental dengan kuesioner ilmiah PHQ-9 & GAD-7. Gratis, privat, dan hanya butuh 5 menit.",
+    "phq9": {
+      "title": "PHQ-9",
+      "fullName": "Screening Depresi",
+      "description": "Mengukur frekuensi gejala depresi selama 2 minggu terakhir",
+      "questions": "9 pertanyaan",
+      "duration": "3-5 menit",
+      "start": "Mulai Screening PHQ-9"
+    },
+    "gad7": {
+      "title": "GAD-7",
+      "fullName": "Screening Kecemasan",
+      "description": "Mengukur tingkat kecemasan selama 2 minggu terakhir",
+      "questions": "7 pertanyaan",
+      "duration": "2-4 menit",
+      "start": "Mulai Screening GAD-7"
+    }
+  },
+  "home": {
+    "heroDescription": "Screening kesehatan mental dengan kuesioner ilmiah PHQ-9 & GAD-7. Gratis, privat, dan hanya butuh 5 menit.",
+    "startNow": "Mulai Sekarang",
+    "learnMore": "Pelajari Lebih Lanjut",
+    "whyTitle": "Mengapa",
+    "whyDescription": "Platform screening kesehatan mental yang dirancang untuk membantu Anda mengenali kondisi mental sejak dini.",
+    "ctaTitle": "Mulai Perjalanan Kesehatan Mental Anda",
+    "ctaDescription": "Hanya butuh 5 menit. Gratis. Privat. Langkah kecil untuk perubahan besar.",
+    "ctaButton": "Daftar Sekarang",
+    "users": "Pengguna Aktif",
+    "satisfaction": "Kepuasan",
+    "screenings": "Screening Selesai"
+  },
+  "assessment": {
+    "instruction": "Instruksi",
+    "instructionPeriod": "Selama 2 minggu terakhir, seberapa sering Anda terganggu oleh masalah-masalah berikut?",
+    "question": "Pertanyaan",
+    "viewResult": "Lihat Hasil",
+    "errorIncomplete": "Harap jawab semua pertanyaan",
+    "errorSave": "Gagal menyimpan hasil. Silakan coba lagi.",
+    "source": "Sumber:"
+  },
+  "result": {
+    "points": "poin",
+    "levelMinimal": "Minimal",
+    "levelMild": "Ringan",
+    "levelModerate": "Sedang",
+    "levelModerateSevere": "Sedang-Berat",
+    "levelSevere": "Berat",
+    "about": "Tentang",
+    "symptoms": "Gejala yang Mungkin Muncul",
+    "impact": "Dampak pada Aktivitas",
+    "action": "Yang Perlu Dilakukan",
+    "recommendation": "Rekomendasi",
+    "resources": "Sumber Daya Pendukung",
+    "consultation": "Konsultasi Profesional",
+    "consultationDesc": "Cari psikolog atau psikiater terdekat untuk konsultasi lebih lanjut",
+    "hotline": "Hotline Kesehatan Mental",
+    "hotlineNumbers": "119 (ext 8) • Yayasan Pulih: 021-500-454 • Into The Light: 021-725-7777",
+    "monitor": "Pantau Perkembangan",
+    "monitorDesc": "Lakukan screening rutin setiap 2-4 minggu untuk melihat perubahan",
+    "infoPhq9": "PHQ-9 adalah kuesioner standar yang digunakan secara global untuk screening depresi.",
+    "infoGad7": "GAD-7 adalah kuesioner standar yang digunakan secara global untuk screening kecemasan.",
+    "infoDisclaimer": "Hasil ini bersifat indikatif dan bukan diagnosis medis.",
+    "disclaimer": "⚠️ Hasil screening ini BUKAN diagnosis medis. Jika Anda mengalami gejala yang mengganggu, segera konsultasikan dengan psikolog atau psikiater profesional.",
+    "backToDashboard": "Kembali ke Dashboard",
+    "screeningAgain": "Screening Lagi"
+  },
+  "footer": {
+    "developedBy": "Dikembangkan oleh",
+    "developer": "Mango WebDev"
+  }
+}
