@@ -36,3 +36,4 @@ next-env.d.ts
 
 # prisma (jangan blokir migrations!)
 # prisma/migrations perlu di-commit
+.vercel
