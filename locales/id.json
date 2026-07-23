@@ -43,7 +43,7 @@
   },
   "dashboard": {
     "title": "Dashboard",
-    "welcome": "Selamat datang kembali, {{name}}! 👋",
+    "welcome": "Selamat datang kembali, {{name}}",
     "subtitle": "Luangkan waktu sejenak untuk memeriksa diri Anda. Kesehatan mental Anda itu penting.",
     "quickActions": "Aksi Cepat",
     "recentScreenings": "Riwayat Screening",
@@ -95,9 +95,62 @@
     "viewResult": "Lihat Hasil",
     "errorIncomplete": "Harap jawab semua pertanyaan",
     "errorSave": "Gagal menyimpan hasil. Silakan coba lagi.",
-    "source": "Sumber:"
+    "source": "Sumber:",
+    "options": {
+      "0": "Tidak sama sekali",
+      "1": "Beberapa hari",
+      "2": "Lebih dari separuh hari",
+      "3": "Hampir setiap hari"
+    },
+    "phq9": {
+      "questions": [
+        "Sedikit minat atau kesenangan dalam melakukan sesuatu",
+        "Merasa sedih, putus asa, atau tertekan",
+        "Sulit tidur atau justru tidur berlebihan",
+        "Merasa lelah atau kekurangan energi",
+        "Nafsu makan berkurang atau justru makan berlebihan",
+        "Merasa buruk tentang diri sendiri—atau merasa Anda gagal atau mengecewakan diri sendiri atau keluarga",
+        "Sulit berkonsentrasi pada sesuatu, seperti membaca koran atau menonton televisi",
+        "Bergerak atau berbicara sangat lambat sehingga orang lain bisa melihatnya? Atau sebaliknya, merasa gelisah sehingga Anda bergerak lebih sering dari biasanya",
+        "Pikiran bahwa Anda lebih baik mati atau menyakiti diri sendiri dengan cara tertentu"
+      ]
+    },
+    "gad7": {
+      "questions": [
+        "Merasa gugup, cemas, atau gelisah",
+        "Tidak bisa berhenti atau mengendalikan kekhawatiran",
+        "Terlalu khawatir tentang berbagai hal",
+        "Sulit rileks",
+        "Gelisah sehingga sulit diam",
+        "Mudah marah atau tersinggung",
+        "Merasa takut seolah-olah ada hal buruk terjadi"
+      ]
+    },
+    "passwordCriteria": "Kriteria Password:",
+    "passwordMinLength": "Minimal 8 karakter",
+    "passwordUppercase": "Huruf besar (A-Z)",
+    "passwordLowercase": "Huruf kecil (a-z)",
+    "passwordNumber": "Angka (0-9)",
+    "passwordSpecial": "Karakter khusus (!@#$%^&*)",
+    "recommendations": {
+      "phq9": {
+        "minimal": "Tidak diperlukan intervensi khusus. Lanjutkan aktivitas positif dan pantau kondisi Anda.",
+        "ringan": "Pertimbangkan konseling ringan. Coba teknik self-help seperti olahraga rutin, mindfulness, dan jurnal harian.",
+        "sedang": "Konsultasi dengan psikolog sangat disarankan. Terapi perilaku kognitif (CBT) efektif untuk tingkat keparahan ini.",
+        "sedang-berat": "Segera konsultasi dengan psikolog atau psikiater. Terapi kombinasi (psikoterapi dan farmakologi) mungkin diperlukan.",
+        "berat": "WAJIB konsultasi dengan psikiater segera. Jangan menunda mencari bantuan profesional."
+      },
+      "gad7": {
+        "minimal": "Tidak diperlukan intervensi khusus. Praktikkan teknik relaksasi sederhana seperti pernapasan dalam.",
+        "ringan": "Pertimbangkan konseling ringan. Coba teknik relaksasi, mindfulness, olahraga teratur, dan kurangi konsumsi kafein.",
+        "sedang": "Konsultasi dengan psikolog sangat disarankan. Terapi perilaku kognitif (CBT) efektif untuk mengelola kecemasan. Pertimbangkan teknik manajemen stres.",
+        "berat": "SEGERA konsultasi dengan psikolog atau psikiater. Kecemasan berat dapat mengganggu fungsi sehari-hari dan mungkin memerlukan terapi kombinasi."
+      }
+    }
   },
   "result": {
+    "title": "Hasil Screening",
+    "outOf": "dari",
     "points": "poin",
     "levelMinimal": "Minimal",
     "levelMild": "Ringan",
@@ -116,15 +169,64 @@
     "hotlineNumbers": "119 (ext 8) • Yayasan Pulih: 021-500-454 • Into The Light: 021-725-7777",
     "monitor": "Pantau Perkembangan",
     "monitorDesc": "Lakukan screening rutin setiap 2-4 minggu untuk melihat perubahan",
-    "infoPhq9": "PHQ-9 adalah kuesioner standar yang digunakan secara global untuk screening depresi.",
-    "infoGad7": "GAD-7 adalah kuesioner standar yang digunakan secara global untuk screening kecemasan.",
+    "infoPhq9": "PHQ-9 adalah kuesioner standar yang digunakan secara global untuk screening depresi. ",
+    "infoGad7": "GAD-7 adalah kuesioner standar yang digunakan secara global untuk screening kecemasan. ",
     "infoDisclaimer": "Hasil ini bersifat indikatif dan bukan diagnosis medis.",
-    "disclaimer": "⚠️ Hasil screening ini BUKAN diagnosis medis. Jika Anda mengalami gejala yang mengganggu, segera konsultasikan dengan psikolog atau psikiater profesional.",
+    "disclaimer": "Hasil screening ini BUKAN diagnosis medis. Jika Anda mengalami gejala yang mengganggu, segera konsultasikan dengan psikolog atau psikiater profesional.",
     "backToDashboard": "Kembali ke Dashboard",
-    "screeningAgain": "Screening Lagi"
+    "screeningAgain": "Screening Lagi",
+    "phq9": {
+      "minimal": {
+        "symptoms": "Tidak ada atau sangat sedikit gejala depresi yang mengganggu aktivitas sehari-hari.",
+        "impact": "Fungsi sehari-hari masih normal, tidak ada gangguan signifikan.",
+        "action": "Pertahankan pola hidup sehat, olahraga teratur, dan jaga koneksi sosial."
+      },
+      "mild": {
+        "symptoms": "Beberapa gejala depresi muncul, namun masih dapat diatasi dengan usaha sendiri.",
+        "impact": "Mungkin ada sedikit gangguan pada aktivitas atau produktivitas.",
+        "action": "Coba teknik self-help seperti mindfulness, journaling, atau olahraga ringan. Konseling singkat dapat membantu."
+      },
+      "moderate": {
+        "symptoms": "Gejala depresi cukup sering muncul dan mulai mengganggu fungsi sehari-hari.",
+        "impact": "Produktivitas menurun, kesulitan menikmati aktivitas yang biasanya disukai.",
+        "action": "Sangat disarankan konsultasi dengan psikolog. Terapi perilaku kognitif (CBT) efektif untuk tingkat ini."
+      },
+      "moderateSevere": {
+        "symptoms": "Gejala depresi muncul hampir setiap hari dan sangat mengganggu.",
+        "impact": "Kesulitan menjalankan aktivitas rutin, hubungan sosial terganggu.",
+        "action": "Segera konsultasi dengan psikolog atau psikiater. Terapi kombinasi (psikoterapi + obat) mungkin diperlukan."
+      },
+      "severe": {
+        "symptoms": "Gejala depresi berat muncul hampir setiap hari, termasuk mungkin ada pikiran menyakiti diri.",
+        "impact": "Funkasi sehari-hari sangat terganggu, mungkin tidak bisa bekerja atau bersekolah.",
+        "action": "WAJIB konsultasi dengan psikiater segera. Jangan menunda mencari bantuan profesional."
+      }
+    },
+    "gad7": {
+      "minimal": {
+        "symptoms": "Tidak ada atau sangat sedikit gejala kecemasan yang mengganggu.",
+        "impact": "Fungsi sehari-hari normal, tidak ada gangguan berarti.",
+        "action": "Pertahankan pola hidup sehat, praktikkan teknik relaksasi seperti pernapasan dalam."
+      },
+      "mild": {
+        "symptoms": "Beberapa gejala kecemasan muncul, seperti gelisah atau mudah lelah.",
+        "impact": "Mungkin ada sedikit gangguan pada konsentrasi atau tidur.",
+        "action": "Coba teknik relaksasi, kurangi kafein, olahraga teratur, dan praktik mindfulness."
+      },
+      "moderate": {
+        "symptoms": "Gejala kecemasan cukup sering muncul dan mulai mengganggu aktivitas.",
+        "impact": "Kesulitan berkonsentrasi, gangguan tidur, mudah marah.",
+        "action": "Konsultasi dengan psikolog sangat disarankan. Terapi perilaku kognitif (CBT) efektif untuk mengelola kecemasan."
+      },
+      "severe": {
+        "symptoms": "Gejala kecemasan berat muncul hampir setiap hari, mungkin disertai serangan panik.",
+        "impact": "Fungsi sehari-hari sangat terganggu, sulit melakukan aktivitas rutin.",
+        "action": "SEGERA konsultasi dengan psikolog atau psikiater. Penanganan profesional sangat diperlukan."
+      }
+    }
   },
   "footer": {
     "developedBy": "Dikembangkan oleh",
-    "developer": "Mango WebDev"
+    "developer": "UNCAL"
   }
 }

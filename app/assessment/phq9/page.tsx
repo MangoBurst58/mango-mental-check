@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowLeft, ArrowRight, Sparkles, CheckCircle, AlertCircle, Info } from "lucide-react";
-import { phq9Questions, phq9Options, getPhq9Level } from "@/lib/assessment/phq9";
+import { getPhq9Level } from "@/lib/assessment/phq9";
 import Logo from "@/components/Logo";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Phq9Page() {
   const router = useRouter();
@@ -15,7 +16,26 @@ export default function Phq9Page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  const totalQuestions = phq9Questions.length;
+  const questions = [
+    t("assessment.phq9.questions.0"),
+    t("assessment.phq9.questions.1"),
+    t("assessment.phq9.questions.2"),
+    t("assessment.phq9.questions.3"),
+    t("assessment.phq9.questions.4"),
+    t("assessment.phq9.questions.5"),
+    t("assessment.phq9.questions.6"),
+    t("assessment.phq9.questions.7"),
+    t("assessment.phq9.questions.8"),
+  ];
+
+  const options = [
+    { value: 0, label: t("assessment.options.0") },
+    { value: 1, label: t("assessment.options.1") },
+    { value: 2, label: t("assessment.options.2") },
+    { value: 3, label: t("assessment.options.3") },
+  ];
+
+  const totalQuestions = questions.length;
   const isComplete = answers.every(a => a !== -1);
   const progress = (answers.filter(a => a !== -1).length / totalQuestions) * 100;
 
@@ -67,7 +87,6 @@ export default function Phq9Page() {
           score: totalScore,
           level,
           description,
-          recommendation,
           responses: answers,
           date: new Date().toISOString(),
         }));
@@ -82,12 +101,10 @@ export default function Phq9Page() {
     }
   };
 
-  const currentQ = phq9Questions[currentQuestion];
   const currentAnswer = answers[currentQuestion];
 
   return (
     <div className="min-h-screen w-full bg-black">
-      {/* Header */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-gray-800">
         <div className="max-w-3xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
@@ -98,15 +115,16 @@ export default function Phq9Page() {
               <ArrowLeft className="w-4 h-4" />
               <span>{t("common.back")}</span>
             </button>
-            <Logo variant="navbar" showText={false} />
+            <div className="flex items-center gap-4">
+              <Logo variant="navbar" showText={false} />
+              <LanguageSwitcher />
+            </div>
             <div className="w-12"></div>
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-2xl mx-auto px-4 pt-20 pb-12">
-        {/* Instruksi */}
         <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-3 mb-5">
           <div className="flex items-start gap-2">
             <Info className="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" />
@@ -117,7 +135,6 @@ export default function Phq9Page() {
           </div>
         </div>
 
-        {/* Progress Bar */}
         <div className="mb-6">
           <div className="flex justify-between text-xs text-gray-500 mb-1">
             <span>{t("common.progress")}</span>
@@ -131,19 +148,18 @@ export default function Phq9Page() {
           </div>
         </div>
 
-        {/* Question Card */}
         <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-5 mb-5">
           <div className="mb-4">
             <span className="text-xs text-orange-500 font-medium">
               {t("assessment.question")} {currentQuestion + 1} / {totalQuestions}
             </span>
             <p className="text-base font-medium text-white mt-1 leading-relaxed">
-              {currentQ.text}
+              {questions[currentQuestion]}
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-2">
-            {phq9Options.map((option) => (
+            {options.map((option) => (
               <button
                 key={option.value}
                 onClick={() => handleAnswer(option.value)}

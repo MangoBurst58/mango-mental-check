@@ -117,7 +117,7 @@ export default function DashboardContent({ userName, userEmail }: DashboardConte
         {/* Welcome Section */}
         <div className="mb-6 sm:mb-8">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">
-            {t("dashboard.welcome").replace("{{name}}", userName)} 👋
+            {t("dashboard.welcome").replace("{{name}}", userName)}
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-gray-400">
             {t("dashboard.subtitle")}

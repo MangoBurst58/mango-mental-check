@@ -67,7 +67,7 @@ export default function RegisterPage() {
     }
 
     if (!isPasswordStrong()) {
-      setError("Password harus memenuhi semua kriteria keamanan (minimal 8 karakter, huruf besar, huruf kecil, angka, dan simbol)");
+      setError(t("auth.passwordRequirements"));
       setLoading(false);
       return;
     }
@@ -89,7 +89,7 @@ export default function RegisterPage() {
         setLoading(false);
       }
     } catch (err) {
-      setError("Terjadi kesalahan koneksi");
+      setError(t("auth.connectionError"));
       setLoading(false);
     }
   };
@@ -203,10 +203,12 @@ export default function RegisterPage() {
                   </button>
                 </div>
                 
-                {/* Password Strength Indicator */}
+                {/* Password Strength Indicator - Menggunakan t() untuk semua teks */}
                 {password.length > 0 && (
                   <div className="mt-2 space-y-1.5">
-                    <p className="text-[10px] sm:text-xs text-gray-400">Kriteria Password:</p>
+                    <p className="text-[10px] sm:text-xs text-gray-400">
+                      {t("auth.passwordCriteria")}
+                    </p>
                     <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
                       <div className="flex items-center gap-1.5">
                         {passwordStrength.length ? (
@@ -215,7 +217,7 @@ export default function RegisterPage() {
                           <XCircle className="w-3 h-3 text-gray-500" />
                         )}
                         <span className={`text-[10px] sm:text-xs ${passwordStrength.length ? "text-green-400" : "text-gray-500"}`}>
-                          Minimal 8 karakter
+                          {t("auth.passwordMinLength")}
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5">
@@ -225,7 +227,7 @@ export default function RegisterPage() {
                           <XCircle className="w-3 h-3 text-gray-500" />
                         )}
                         <span className={`text-[10px] sm:text-xs ${passwordStrength.uppercase ? "text-green-400" : "text-gray-500"}`}>
-                          Huruf besar (A-Z)
+                          {t("auth.passwordUppercase")}
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5">
@@ -235,7 +237,7 @@ export default function RegisterPage() {
                           <XCircle className="w-3 h-3 text-gray-500" />
                         )}
                         <span className={`text-[10px] sm:text-xs ${passwordStrength.lowercase ? "text-green-400" : "text-gray-500"}`}>
-                          Huruf kecil (a-z)
+                          {t("auth.passwordLowercase")}
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5">
@@ -245,7 +247,7 @@ export default function RegisterPage() {
                           <XCircle className="w-3 h-3 text-gray-500" />
                         )}
                         <span className={`text-[10px] sm:text-xs ${passwordStrength.number ? "text-green-400" : "text-gray-500"}`}>
-                          Angka (0-9)
+                          {t("auth.passwordNumber")}
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5 col-span-2">
@@ -255,7 +257,7 @@ export default function RegisterPage() {
                           <XCircle className="w-3 h-3 text-gray-500" />
                         )}
                         <span className={`text-[10px] sm:text-xs ${passwordStrength.special ? "text-green-400" : "text-gray-500"}`}>
-                          Karakter khusus (!@#$%^&*)
+                          {t("auth.passwordSpecial")}
                         </span>
                       </div>
                     </div>
@@ -287,7 +289,9 @@ export default function RegisterPage() {
                   </button>
                 </div>
                 {confirmPassword.length > 0 && password !== confirmPassword && (
-                  <p className="text-[10px] sm:text-xs text-red-400 mt-1">Password tidak cocok</p>
+                  <p className="text-[10px] sm:text-xs text-red-400 mt-1">
+                    {t("auth.passwordMismatch")}
+                  </p>
                 )}
               </div>
 

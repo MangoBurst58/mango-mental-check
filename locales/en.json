@@ -43,7 +43,7 @@
   },
   "dashboard": {
     "title": "Dashboard",
-    "welcome": "Welcome back, {{name}}! 👋",
+    "welcome": "Welcome back, {{name}}! ",
     "subtitle": "Take a moment to check in with yourself. Your mental health matters.",
     "quickActions": "Quick Actions",
     "recentScreenings": "Recent Screenings",
@@ -95,9 +95,62 @@
     "viewResult": "View Result",
     "errorIncomplete": "Please answer all questions",
     "errorSave": "Failed to save results. Please try again.",
-    "source": "Source:"
+    "source": "Source:",
+    "options": {
+      "0": "Not at all",
+      "1": "Several days",
+      "2": "More than half the days",
+      "3": "Nearly every day"
+    },
+    "phq9": {
+      "questions": [
+        "Little interest or pleasure in doing things",
+        "Feeling down, depressed, or hopeless",
+        "Trouble falling or staying asleep, or sleeping too much",
+        "Feeling tired or having little energy",
+        "Poor appetite or overeating",
+        "Feeling bad about yourself — or that you are a failure or have let yourself or your family down",
+        "Trouble concentrating on things, such as reading the newspaper or watching television",
+        "Moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual",
+        "Thoughts that you would be better off dead or of hurting yourself in some way"
+      ]
+    },
+    "gad7": {
+      "questions": [
+        "Feeling nervous, anxious, or on edge",
+        "Not being able to stop or control worrying",
+        "Worrying too much about different things",
+        "Trouble relaxing",
+        "Being so restless that it is hard to sit still",
+        "Becoming easily annoyed or irritable",
+        "Feeling afraid as if something awful might happen"
+      ]
+    },
+    "passwordCriteria": "Password Criteria:",
+    "passwordMinLength": "Minimum 8 characters",
+    "passwordUppercase": "Uppercase letter (A-Z)",
+    "passwordLowercase": "Lowercase letter (a-z)",
+    "passwordNumber": "Number (0-9)",
+    "passwordSpecial": "Special character (!@#$%^&*)",
+    "recommendations": {
+      "phq9": {
+        "minimal": "No intervention needed. Continue positive activities and monitor your condition.",
+        "ringan": "Consider light counseling. Try self-help techniques such as regular exercise, mindfulness, and journaling.",
+        "sedang": "Consultation with a psychologist is highly recommended. Cognitive behavioral therapy (CBT) is effective for this level of severity.",
+        "sedang-berat": "Immediately consult a psychologist or psychiatrist. Combination therapy (psychotherapy and pharmacotherapy) may be needed.",
+        "berat": "MUST consult a psychiatrist immediately. Do not delay seeking professional help."
+      },
+      "gad7": {
+        "minimal": "No intervention needed. Practice simple relaxation techniques such as deep breathing.",
+        "ringan": "Consider light counseling. Try relaxation techniques, mindfulness, regular exercise, and reduce caffeine intake.",
+        "sedang": "Consultation with a psychologist is highly recommended. Cognitive behavioral therapy (CBT) is effective for managing anxiety. Consider stress management techniques.",
+        "berat": "IMMEDIATELY consult a psychologist or psychiatrist. Severe anxiety can interfere with daily function and may require combination therapy."
+      }
+    }
   },
   "result": {
+    "title": "Screening Result",
+    "outOf": "out of",
     "points": "points",
     "levelMinimal": "Minimal",
     "levelMild": "Mild",
@@ -116,15 +169,64 @@
     "hotlineNumbers": "119 (ext 8) • Yayasan Pulih: +62 21-500-454 • Into The Light: +62 21-725-7777",
     "monitor": "Track Progress",
     "monitorDesc": "Take regular screenings every 2-4 weeks to see changes",
-    "infoPhq9": "PHQ-9 is a globally standardized questionnaire for depression screening.",
-    "infoGad7": "GAD-7 is a globally standardized questionnaire for anxiety screening.",
+    "infoPhq9": "PHQ-9 is a globally standardized questionnaire for depression screening. ",
+    "infoGad7": "GAD-7 is a globally standardized questionnaire for anxiety screening. ",
     "infoDisclaimer": "This result is indicative and not a medical diagnosis.",
-    "disclaimer": "⚠️ This screening result is NOT a medical diagnosis. If you are experiencing concerning symptoms, please consult a psychologist or psychiatrist immediately.",
+    "disclaimer": " This screening result is NOT a medical diagnosis. If you are experiencing concerning symptoms, please consult a psychologist or psychiatrist immediately.",
     "backToDashboard": "Back to Dashboard",
-    "screeningAgain": "Screening Again"
+    "screeningAgain": "Screening Again",
+    "phq9": {
+      "minimal": {
+        "symptoms": "No or very few depression symptoms that interfere with daily activities.",
+        "impact": "Daily functioning remains normal, no significant impairment.",
+        "action": "Maintain a healthy lifestyle, exercise regularly, and maintain social connections."
+      },
+      "mild": {
+        "symptoms": "Some depression symptoms appear, but can still be managed with self-effort.",
+        "impact": "There may be slight disruption in activity or productivity.",
+        "action": "Try self-help techniques such as mindfulness, journaling, or light exercise. Brief counseling may help."
+      },
+      "moderate": {
+        "symptoms": "Depression symptoms occur quite often and begin to interfere with daily function.",
+        "impact": "Decreased productivity, difficulty enjoying activities that are usually liked.",
+        "action": "Consultation with a psychologist is highly recommended. Cognitive behavioral therapy (CBT) is effective for this level."
+      },
+      "moderateSevere": {
+        "symptoms": "Depression symptoms appear almost every day and are very disruptive.",
+        "impact": "Difficulty carrying out routine activities, social relationships are disrupted.",
+        "action": "Immediately consult a psychologist or psychiatrist. Combination therapy (psychotherapy + medication) may be needed."
+      },
+      "severe": {
+        "symptoms": "Severe depression symptoms appear almost every day, possibly including thoughts of self-harm.",
+        "impact": "Daily function is severely impaired, may not be able to work or attend school.",
+        "action": "MUST consult a psychiatrist immediately. Do not delay seeking professional help."
+      }
+    },
+    "gad7": {
+      "minimal": {
+        "symptoms": "No or very few anxiety symptoms that interfere.",
+        "impact": "Daily function is normal, no significant problems.",
+        "action": "Maintain a healthy lifestyle, practice relaxation techniques such as deep breathing."
+      },
+      "mild": {
+        "symptoms": "Some anxiety symptoms appear, such as restlessness or fatigue.",
+        "impact": "There may be slight disruption in concentration or sleep.",
+        "action": "Try relaxation techniques, reduce caffeine, exercise regularly, and practice mindfulness."
+      },
+      "moderate": {
+        "symptoms": "Anxiety symptoms occur quite often and begin to interfere with activities.",
+        "impact": "Difficulty concentrating, sleep disturbances, easily irritated.",
+        "action": "Consultation with a psychologist is highly recommended. Cognitive behavioral therapy (CBT) is effective for managing anxiety."
+      },
+      "severe": {
+        "symptoms": "Severe anxiety symptoms appear almost every day, possibly accompanied by panic attacks.",
+        "impact": "Daily function is severely impaired, difficulty carrying out routine activities.",
+        "action": "IMMEDIATELY consult a psychologist or psychiatrist. Professional treatment is necessary."
+      }
+    }
   },
   "footer": {
     "developedBy": "Developed by",
-    "developer": "Mango WebDev"
+    "developer": "UNCAL"
   }
 }
